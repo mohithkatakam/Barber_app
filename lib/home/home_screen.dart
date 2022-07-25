@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
-import 'package:intl/intl.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,19 +14,22 @@ class _HomeScreenState extends State<HomeScreen> {
   DatePickerController _controller = DatePickerController();
 
 
-  formattedDate(date) {
-    final DateTime convertedDate = DateTime.parse(date);
-    final DateFormat formatter = DateFormat('dd-MM-yyyy');
-    final String formatted = formatter.format(convertedDate);
-    print(formatted);
-    return formatted;
-    // something like 2013-04-20
-  }
+  // formattedDate(date) {
+  //   final DateTime convertedDate = DateTime.parse(date);
+  //   final DateFormat formatter = DateFormat('dd-MM-yyyy');
+  //   final String formatted = formatter.format(convertedDate);
+  //   print(formatted);
+  //   return formatted;
+  //   // something like 2013-04-20
+  // }
 
   DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Select Date")
+      ),
       body: Column(
         children:[
           Container(
@@ -54,6 +57,34 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             )
           ),
+          Container(
+            height: 200,
+            child: ListView(
+              children: [
+                Wrap(
+                  children: [
+                    Chip(
+                        label: Text("9:00")
+                    )
+                  ],
+                )
+              ],
+            )
+          ),
+          Container(
+              height: 200,
+              child: ListView(
+                children: [
+                  Wrap(
+                    children: [
+                      Chip(
+                          label: Text("1")
+                      )
+                    ],
+                  )
+                ],
+              )
+          )
 
         ]
       )
